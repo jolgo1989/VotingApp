@@ -61,7 +61,7 @@ class CandidateFragment : Fragment() {
     }
 
     private fun inputCheck(firstName: String, lastName: String, votingCrad: String): Boolean {
-        return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && TextUtils.isEmpty(votingCrad))
+        return !(TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(votingCrad))
     }
 
 }

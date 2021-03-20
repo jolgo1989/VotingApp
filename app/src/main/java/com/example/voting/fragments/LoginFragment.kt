@@ -66,7 +66,6 @@ class LoginFragment : Fragment() {
                                 editTExUser.editText?.setText("")
                                 editTextPassword.editText?.setText("")
 
-
                             }
 
                         })

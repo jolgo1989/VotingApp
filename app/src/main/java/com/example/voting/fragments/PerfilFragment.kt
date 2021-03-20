@@ -1,6 +1,7 @@
 package com.example.voting.fragments
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -67,8 +68,9 @@ class PerfilFragment : Fragment() {
 
     private fun inputCheck(userName: String,password: String): Boolean {
 
-        return !(TextUtils.isEmpty(userName) && TextUtils.isEmpty(password))
-
+        return !(TextUtils.isEmpty(userName) || TextUtils.isEmpty(password))
     }
+
+
 
 }
