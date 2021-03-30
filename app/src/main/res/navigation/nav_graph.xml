@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.example.voting.fragments.LoginFragment"
+        android:label="fragment_logIn"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_mainFragment_to_perfilFragment"
+
+
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.voting.fragments.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_mainFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/votersFragment"
+        android:name="com.example.voting.CandidatesFragment"
+        android:label="fragment_voters"
+        tools:layout="@layout/fragment_voters" >
+        <action
+            android:id="@+id/action_votersFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.voting.fragments.MainFragment"
+        android:label="fragment_main2"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_votersFragment"
+            app:destination="@id/votersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.voting.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment2_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_candidateFragment"
+            app:destination="@id/candidateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/candidateFragment"
+        android:name="com.example.voting.CandidateFragment"
+        android:label="fragment_candidate"
+        tools:layout="@layout/fragment_candidate" >
+        <action
+            android:id="@+id/action_candidateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+</navigation>
