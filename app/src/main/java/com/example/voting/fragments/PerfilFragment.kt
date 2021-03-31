@@ -58,8 +58,10 @@ class PerfilFragment : Fragment() {
             // Navigate Back
             findNavController().navigate(R.id.action_perfilFragment_to_mainFragment)
 
+
         } else {
             Toast.makeText(context, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+
         }
     }
 

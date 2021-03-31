@@ -1,9 +1,10 @@
-package com.example.voting
+package com.example.voting.list
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.voting.R
 import com.example.voting.data.entities.Voters
 import kotlinx.android.synthetic.main.custom_row.view.*
 

@@ -3,6 +3,7 @@ package com.example.voting
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
@@ -10,9 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Metodo para desaparecer el Up BUtton
+        val upButton = AppBarConfiguration(setOf(R.id.listFragment,R.id.mainFragment))
+
         //Metodo para agregar el Up button
         val navController = this.findNavController(R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController,upButton)
 
 
     }

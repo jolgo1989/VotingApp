@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.voting.ListFragment"
+        android:name="com.example.voting.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/candidateFragment"
-        android:name="com.example.voting.CandidateFragment"
+        android:name="com.example.voting.fragments.CandidateFragment"
         android:label="fragment_candidate"
         tools:layout="@layout/fragment_candidate" >
         <action

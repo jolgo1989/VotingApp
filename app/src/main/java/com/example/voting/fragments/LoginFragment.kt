@@ -47,6 +47,8 @@ class LoginFragment : Fragment() {
                             } else {
                               //  Toast.makeText(context, "Found", Toast.LENGTH_SHORT).show()
                                 findNavController().navigate(R.id.action_logInFragment_to_listFragment)
+
+
                             }
 
                         })

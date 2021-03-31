@@ -1,4 +1,4 @@
-package com.example.voting
+package com.example.voting.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.voting.R
 import com.example.voting.data.UserViewModel
 import com.example.voting.data.entities.Voters
 import kotlinx.android.synthetic.main.fragment_candidate.*
