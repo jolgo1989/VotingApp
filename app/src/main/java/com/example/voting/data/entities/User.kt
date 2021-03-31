@@ -1,4 +1,4 @@
-package com.example.voting.data
+package com.example.voting.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,6 +8,5 @@ data class User(
         @PrimaryKey(autoGenerate = true)
         val id: Int,
         val userName: String,
-        val nameStudent: String,
         val password: String
 )

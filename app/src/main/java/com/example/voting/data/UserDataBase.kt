@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.voting.data.entities.User
+import com.example.voting.data.entities.Voters
 
-@Database(entities = [User::class,Voters::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Voters::class], version = 1, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

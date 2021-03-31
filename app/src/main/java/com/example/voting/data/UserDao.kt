@@ -5,6 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.voting.data.entities.User
+import com.example.voting.data.entities.Voters
 
 @Dao
 interface UserDao {

@@ -2,6 +2,8 @@ package com.example.voting.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import com.example.voting.data.entities.User
+import com.example.voting.data.entities.Voters
 
 class UserRepository(private val userDao: UserDao) {
 

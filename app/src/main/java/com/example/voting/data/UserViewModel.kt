@@ -3,6 +3,8 @@ package com.example.voting.data
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.*
+import com.example.voting.data.entities.User
+import com.example.voting.data.entities.Voters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

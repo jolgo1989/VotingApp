@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.voting.R
-import com.example.voting.data.User
+import com.example.voting.data.entities.User
 import com.example.voting.data.UserViewModel
 import com.example.voting.databinding.FragmentPerfilBinding
 import kotlinx.android.synthetic.main.fragment_perfil.*
@@ -35,7 +35,7 @@ class PerfilFragment : Fragment() {
 
         mUserViewmodel = ViewModelProvider(this).get(UserViewModel::class.java)
         binding = FragmentPerfilBinding.bind(view)
-        binding.buttonAdd.setOnClickListener {
+        binding.addUserBtn.setOnClickListener {
             insertDataToDatabase()
         }
     }
@@ -43,14 +43,13 @@ class PerfilFragment : Fragment() {
     private fun insertDataToDatabase() {
 
         val userName = addFirstName_et.editText?.text.toString()
-        val nameStudent = textInputLastNameStudent.editText?.text.toString()
-        val password = textInputPassword.editText?.text.toString()
+        val password = addPassword_et.editText?.text.toString()
 
-        if (inputCheck(userName, nameStudent, password)) {
+        if (inputCheck(userName, password)) {
 
             // Create User Object
             val user = User(
-                    0, userName, nameStudent, password
+                    0, userName, password
             )
 
             // Add Data to Database
@@ -64,9 +63,9 @@ class PerfilFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(userName: String, nameStudent: String, password: String): Boolean {
+    private fun inputCheck(userName: String,password: String): Boolean {
 
-        return !(TextUtils.isEmpty(userName) && TextUtils.isEmpty(nameStudent)  && TextUtils.isEmpty(password))
+        return !(TextUtils.isEmpty(userName) && TextUtils.isEmpty(password))
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.voting.data
+package com.example.voting.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -9,5 +9,5 @@ data class Voters(
     val votersId: Int,
     val firstName: String,
     val lastName: String,
-    val age: Int
+    val votingCard: String
 )
