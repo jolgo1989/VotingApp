@@ -42,11 +42,13 @@ class ListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_candidateFragment)
 
         }
-
+/*
         //Metodo para bloquear el boton a tras
          requireActivity().onBackPressedDispatcher.addCallback {
              // With blank your fragment BackPressed will be disabled.
          }
+
+ */
 
 
         return view

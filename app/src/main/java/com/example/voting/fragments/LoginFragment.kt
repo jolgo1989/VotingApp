@@ -43,10 +43,20 @@ class LoginFragment : Fragment() {
                         ?.observe(viewLifecycleOwner, Observer {
 
                             if (it == null) {
-                                Toast.makeText(context, "No Found", Toast.LENGTH_SHORT).show()
+                                editTExUser.error = "User no found"
+                                editTextPassword.error = "Password no Found"
+
+                                //Toast.makeText(context, "No Found", Toast.LENGTH_SHORT).show()
                             } else {
-                              //  Toast.makeText(context, "Found", Toast.LENGTH_SHORT).show()
+                                //  Toast.makeText(context, "Found", Toast.LENGTH_SHORT).show()
                                 findNavController().navigate(R.id.action_logInFragment_to_listFragment)
+
+                                editTExUser.error = ""
+                                editTextPassword.error = ""
+
+                               //Metodo para borrar datos del editText
+                                editTExUser.editText?.setText("")
+                                editTextPassword.editText?.setText("")
 
 
                             }
@@ -72,9 +82,8 @@ class LoginFragment : Fragment() {
 
 
 
-            return view
-
-        }
-
+        return view
 
     }
+
+}
