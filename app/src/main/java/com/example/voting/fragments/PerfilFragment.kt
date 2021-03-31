@@ -42,7 +42,7 @@ class PerfilFragment : Fragment() {
 
     private fun insertDataToDatabase() {
 
-        val userName = textInputUserName.editText?.text.toString()
+        val userName = addFirstName_et.editText?.text.toString()
         val nameStudent = textInputLastNameStudent.editText?.text.toString()
         val password = textInputPassword.editText?.text.toString()
 

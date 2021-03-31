@@ -16,4 +16,9 @@
     <string name="buttonIngresar">Ingresar</string>
     <string name="imguserlogin">UserLogin</string>
     <string name="buttonFloatting">ButtonFloatting</string>
+    <string name="first_name">First Name</string>
+    <string name="candidateName">First Name</string>
+    <string name="candidateLastName">Last Name</string>
+    <string name="votingCard">Voting Card Number</string>
+    <string name="AddCadidate">Add Candidate</string>
 </resources>
