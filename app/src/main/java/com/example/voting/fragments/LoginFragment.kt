@@ -38,26 +38,14 @@ class LoginFragment : Fragment() {
 
                 val name = editTExUser.editText?.text.toString()
                 val passWord = editTextPassword.editText?.text.toString()
-                
-                if (name.isEmpty()) {
-                    editTExUser.error = "Digite nombre"
-                } else
-                    if (name.isNotEmpty()) {
-                        editTExUser.error = ""
-                    }
-                if (passWord.isEmpty()) {
-                    editTextPassword.error = "Digite la contraseña"
-                } else {
-                    editTextPassword.error = ""
 
-                }
 
                 context?.let { it1 ->
                     mUserViewModel.getLoginDetails(it1, name, passWord)
                         ?.observe(viewLifecycleOwner, Observer {
 
-                            if (it == null) {
-                                Toast.makeText(context, "No Found", Toast.LENGTH_SHORT).show()
+                            if ( it == null) {
+                                Toast.makeText(context, "User or PassWord no found ", Toast.LENGTH_SHORT).show()
                             } else {
                                 //  Toast.makeText(context, "Found", Toast.LENGTH_SHORT).show()
                                 findNavController().navigate(R.id.action_logInFragment_to_listFragment)
