@@ -1,7 +1,6 @@
 package com.example.voting.fragments
 
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,7 +42,7 @@ class PerfilFragment : Fragment() {
 
     private fun insertDataToDatabase() {
 
-        val userName = addFirstName_et.editText?.text.toString()
+        val userName = etAddFirstName.editText?.text.toString()
         val password = addPassword_et.editText?.text.toString()
 
         if (inputCheck(userName, password)) {

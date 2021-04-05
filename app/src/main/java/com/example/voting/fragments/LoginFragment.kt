@@ -31,13 +31,13 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.bind(view)
         with(binding) {
 
-            textViewRegistrase.setOnClickListener {
+            tvSignUp.setOnClickListener {
                 findNavController().navigate(R.id.action_mainFragment_to_perfilFragment)
             }
             buttonIngresar.setOnClickListener {
 
-                val name = editTExUser.editText?.text.toString()
-                val passWord = editTextPassword.editText?.text.toString()
+                val name = etUser.editText?.text.toString()
+                val passWord = etPassword.editText?.text.toString()
 
 
                 context?.let { it1 ->
@@ -51,8 +51,8 @@ class LoginFragment : Fragment() {
                                 findNavController().navigate(R.id.action_logInFragment_to_listFragment)
 
                                 //Metodo para borrar datos del editText
-                                editTExUser.editText?.setText("")
-                                editTextPassword.editText?.setText("")
+                                etUser.editText?.setText("")
+                                etPassword.editText?.setText("")
 
                             }
 
@@ -62,14 +62,14 @@ class LoginFragment : Fragment() {
 
 
             //Metodo para conservar los datos en el editTExt
-            editTExUser.editText?.setText(mUserViewModel.username_.value)
-            editTextPassword.editText?.setText(mUserViewModel.passWord_.value)
+            etUser.editText?.setText(mUserViewModel.username_.value)
+            etPassword.editText?.setText(mUserViewModel.passWord_.value)
 
-            editTExUser.editText?.doOnTextChanged { charSequence: CharSequence?, i: Int, i1: Int, i2: Int ->
-                mUserViewModel.username_.value = editTExUser.editText?.text.toString()
+            etUser.editText?.doOnTextChanged { charSequence: CharSequence?, i: Int, i1: Int, i2: Int ->
+                mUserViewModel.username_.value = etUser.editText?.text.toString()
             }
-            editTextPassword.editText?.doOnTextChanged { charSequence: CharSequence?, i: Int, _: Int, i2: Int ->
-                mUserViewModel.passWord_.value = binding.editTextPassword.editText?.text.toString()
+            etPassword.editText?.doOnTextChanged { charSequence: CharSequence?, i: Int, _: Int, i2: Int ->
+                mUserViewModel.passWord_.value = binding.etPassword.editText?.text.toString()
             }
 
 

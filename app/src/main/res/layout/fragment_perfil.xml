@@ -7,7 +7,7 @@
     tools:context=".fragments.PerfilFragment">
 
     <ImageView
-        android:id="@+id/user_imv"
+        android:id="@+id/imgUser"
         android:layout_width="194dp"
         android:layout_height="199dp"
         android:layout_marginTop="64dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/addFirstName_et"
+        android:id="@+id/etAddFirstName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_imv">
+        app:layout_constraintTop_toBottomOf="@+id/imgUser">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addFirstName_et">
+        app:layout_constraintTop_toBottomOf="@+id/etAddFirstName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

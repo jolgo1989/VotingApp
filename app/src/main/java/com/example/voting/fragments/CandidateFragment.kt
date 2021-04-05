@@ -28,7 +28,7 @@ class CandidateFragment : Fragment() {
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        view.addCandidate_btn.setOnClickListener {
+        view.btAddCandidate.setOnClickListener {
             insertDataToDatabase()
         }
 
@@ -37,9 +37,9 @@ class CandidateFragment : Fragment() {
 
     private fun insertDataToDatabase() {
 
-        val firstName = addFirstName_et.editText?.text.toString()
-        val lastName = addFirstName_et.editText?.text.toString()
-        val votingCard = addNumerCard_et.editText?.text.toString()
+        val firstName = etAddFirstName.editText?.text.toString()
+        val lastName = etAddFirstName.editText?.text.toString()
+        val votingCard = etAddNumerCard.editText?.text.toString()
 
         if (inputCheck(firstName, lastName, votingCard)) {
             // Create User Object

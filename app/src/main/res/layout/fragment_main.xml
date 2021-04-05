@@ -7,7 +7,7 @@
     tools:context=".fragments.MainFragment">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgVote"
         android:layout_width="189dp"
         android:layout_height="172dp"
         android:layout_marginTop="32dp"
@@ -27,7 +27,7 @@
         app:cardBackgroundColor="#FFEB3B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imgVote" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvVoters"

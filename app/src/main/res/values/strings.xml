@@ -5,15 +5,15 @@
     <string name="imgVoting">Voiting</string>
     <string name="User">User name</string>
     <string name="Pasword">Pasword</string>
-    <string name="registrese">Registrese!</string>
-    <string name="olvidePasword">Olvide mi claver</string>
+    <string name="registrese">Sign up</string>
+    <string name="olvidePasword">I forgot my password</string>
     <string name="imgRegister">Register</string>
     <string name="userName">User Name</string>
     <string name="NameStudent">Name Student</string>
     <string name="Grade">Grade</string>
     <string name="buttonRegistrase">Add User</string>
     <string name="password">Password</string>
-    <string name="buttonIngresar">Ingresar</string>
+    <string name="buttonIngresar">Login</string>
     <string name="imguserlogin">UserLogin</string>
     <string name="buttonFloatting">ButtonFloatting</string>
     <string name="first_name">First Name</string>
@@ -21,4 +21,8 @@
     <string name="candidateLastName">Last Name</string>
     <string name="votingCard">Voting Card Number</string>
     <string name="AddCadidate">Add Candidate</string>
+    <string name="textViewId">1</string>
+    <string name="firstName_txt">Jorge</string>
+    <string name="textViewlastName">Gao</string>
+    <string name="textViewAge">(31)</string>
 </resources>

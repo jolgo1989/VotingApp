@@ -6,10 +6,10 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/id_txt"
+        android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
+        android:text="@string/textViewId"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,37 +17,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/firstName_txt"
+        android:id="@+id/tvFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="John"
+        android:text="@string/firstName_txt"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/id_txt"
+        app:layout_constraintStart_toEndOf="@+id/tvId"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.476" />
 
     <TextView
-        android:id="@+id/lastName_txt"
+        android:id="@+id/tvLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:text="Doe"
+        android:text="@string/textViewlastName"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/firstName_txt"
+        app:layout_constraintStart_toEndOf="@+id/tvFirstName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/age_txt"
+        android:id="@+id/tvAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="(25)"
+        android:text="@string/textViewAge"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lastName_txt"
+        app:layout_constraintStart_toEndOf="@+id/tvLastName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.476" />
 
