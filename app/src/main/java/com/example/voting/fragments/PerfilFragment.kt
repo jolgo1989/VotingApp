@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.voting.R
@@ -19,9 +20,8 @@ import kotlinx.android.synthetic.main.fragment_perfil.*
 class PerfilFragment : Fragment() {
 
     private lateinit var binding: FragmentPerfilBinding
-    private lateinit var mUserViewmodel: UserViewModel
+    private val mUserViewmodel by viewModels<UserViewModel>()
 
-    private lateinit var f: LoginFragment
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +33,6 @@ class PerfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mUserViewmodel = ViewModelProvider(this).get(UserViewModel::class.java)
         binding = FragmentPerfilBinding.bind(view)
         binding.addUserBtn.setOnClickListener {
             insertDataToDatabase()
@@ -42,27 +41,34 @@ class PerfilFragment : Fragment() {
 
     private fun insertDataToDatabase() {
 
-        val userName = etAddFirstName.editText?.text.toString()
-        val password = addPassword_et.editText?.text.toString()
+        binding = view?.let { FragmentPerfilBinding.bind(it) }!!
 
-        if (inputCheck(userName, password)) {
+        with(binding){
 
-            // Create User Object
-            val user = User(
+            val userName = etAddFirstName.editText?.text.toString()
+            val password = etAddPassword.editText?.text.toString()
+
+            if (inputCheck(userName, password)) {
+
+                // Create User Object
+                val user = User(
                     0, userName, password
-            )
+                )
 
-            // Add Data to Database
-            mUserViewmodel.addUser(user)
-            Toast.makeText(context, "Successfully added!", Toast.LENGTH_SHORT).show()
-            // Navigate Back
-            findNavController().navigate(R.id.action_perfilFragment_to_mainFragment)
+                // Add Data to Database
+                mUserViewmodel.addUser(user)
+                Toast.makeText(context, "Successfully added!", Toast.LENGTH_SHORT).show()
+                // Navigate Back
+                findNavController().navigate(R.id.action_perfilFragment_to_mainFragment)
 
 
-        } else {
-            Toast.makeText(context, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Please fill out all fields.", Toast.LENGTH_SHORT).show()
 
+            }
         }
+
+
     }
 
     private fun inputCheck(userName: String,password: String): Boolean {

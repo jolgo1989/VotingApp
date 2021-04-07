@@ -8,18 +8,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.voting.R
 import com.example.voting.data.UserViewModel
+import com.example.voting.data.entities.User
 import com.example.voting.databinding.FragmentLoginBinding
-
 
 class LoginFragment : Fragment() {
 
     //Data binding fragment
     private lateinit var binding: FragmentLoginBinding
-    private val mUserViewModel: UserViewModel by activityViewModels()
+
+    private val mUserViewModel by viewModels<UserViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,7 +77,6 @@ class LoginFragment : Fragment() {
 
 
         }
-
 
 
         return view

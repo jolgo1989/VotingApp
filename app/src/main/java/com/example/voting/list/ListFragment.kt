@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -17,7 +19,9 @@ import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
 
-    private lateinit var mUserViewModel: UserViewModel
+    // private lateinit var mUserViewModel: UserViewModel
+
+    private val mUserViewModel by viewModels<UserViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +36,6 @@ class ListFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // UserViewModel
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         mUserViewModel.readAllData.observe(viewLifecycleOwner, Observer { voters ->
             adapter.setData(voters)
         })
@@ -44,15 +46,19 @@ class ListFragment : Fragment() {
         }
 
         //Metodo para bloquear el boton a tras
-         requireActivity().onBackPressedDispatcher.addCallback {
-             // With blank your fragment BackPressed will be disabled.
-         }
+        requireActivity().onBackPressedDispatcher.addCallback (viewLifecycleOwner){
+            // With blank your fragment BackPressed will be disabled.
+        }
+
+
+
+
+
 
 
 
         return view
     }
-
 
 
 }
