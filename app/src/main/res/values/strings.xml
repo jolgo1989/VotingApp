@@ -25,4 +25,5 @@
     <string name="firstName_txt">Jorge</string>
     <string name="textViewlastName">Gao</string>
     <string name="textViewAge">(31)</string>
+    <string name="ImageSelect">ImageSelect</string>
 </resources>
