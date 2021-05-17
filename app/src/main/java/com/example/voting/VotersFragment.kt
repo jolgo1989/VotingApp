@@ -1,6 +1,8 @@
 package com.example.voting
 
 import android.Manifest
+import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -47,13 +49,35 @@ class VotersFragment : Fragment() {
         return view
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when(requestCode) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_GALLERY) {
+            if (resultCode == RESULT_OK && data != null) {
+                val photo = data.data
+                binding.imageView2.setImageURI(photo)
+            }else{
+                Toast.makeText(context, "You didn't any photo", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
             REQUES_PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] ==  PackageManager.PERMISSION_GRANTED) {
-                   openGallery()
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openGallery()
                 } else {
-                    Toast.makeText(context, "Unable to update location without permission", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        context,
+                        "Unable to update location without permission",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
             else -> {
