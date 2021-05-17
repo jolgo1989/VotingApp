@@ -31,15 +31,6 @@
             app:destination="@id/logInFragment" />
     </fragment>
     <fragment
-        android:id="@+id/votersFragment"
-        android:name="com.example.voting.CandidatesFragment"
-        android:label="fragment_voters"
-        tools:layout="@layout/fragment_voters" >
-        <action
-            android:id="@+id/action_votersFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.voting.fragments.MainFragment"
         android:label="fragment_main2"
@@ -71,5 +62,14 @@
         <action
             android:id="@+id/action_candidateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/votersFragment"
+        android:name="com.example.voting.VotersFragment"
+        android:label="fragment_voters"
+        tools:layout="@layout/fragment_voters" >
+        <action
+            android:id="@+id/action_votersFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
