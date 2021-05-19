@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_candidate.*
 import kotlinx.android.synthetic.main.fragment_candidate.view.*
 
 class CandidateFragment : Fragment() {
-
+///////////
     private lateinit var binding: FragmentCandidateBinding
 
     private val mUserViewModel by viewModels<UserViewModel>()
