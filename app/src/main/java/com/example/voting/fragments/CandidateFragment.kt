@@ -66,8 +66,9 @@ class CandidateFragment : Fragment() {
         return view
     }
 
+    //Select photo from gallery
     private fun openGallery() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, REQUEST_IMAGE_GALLERY)
     }
