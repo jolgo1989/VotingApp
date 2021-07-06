@@ -9,5 +9,6 @@ data class Voters(
     val votersId: Int,
     val firstName: String,
     val lastName: String,
-    val votingCard: String
+    val votingCard: String,
+    val img: String
 )

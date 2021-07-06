@@ -3,6 +3,9 @@ package com.example.voting.fragments
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
@@ -23,6 +26,9 @@ import com.example.voting.databinding.FragmentCandidateBinding
 import com.example.voting.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_candidate.*
 import kotlinx.android.synthetic.main.fragment_candidate.view.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.util.jar.Manifest
 
 class CandidateFragment : Fragment() {
@@ -52,16 +58,15 @@ class CandidateFragment : Fragment() {
                 ) {
                     openGallery()
                 } else {
-                    val permissionRequest = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    val permissionRequest =
+                        arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
                     requestPermissions(permissionRequest, REQUEST_PERMISSION_CODE)
                 }
 
             } else {
                 openGallery()
             }
-
         }
-
 
         return view
     }
@@ -96,28 +101,66 @@ class CandidateFragment : Fragment() {
         }
     }
 
+    private lateinit var stringPath: String
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_GALLERY) {
-            if (resultCode == RESULT_OK && data != null) {
-                val photo = data.data
-                binding.imageViewSelect.setImageURI(photo)
-            }else{
+            if (resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_GALLERY) {
+                //File path
+                val selectedImageUri: Uri? = data?.data
+
+                //Convert Uri to a Bitmap
+                val source = selectedImageUri?.let {
+                    context?.let { it1 ->
+                        ImageDecoder.createSource(
+                            it1.contentResolver, it
+                        )
+                    }
+                }
+
+                val bitmap = source?.let { ImageDecoder.decodeBitmap(it) }
+                binding.imageViewSelect.setImageBitmap(bitmap)
+
+                //Creation date
+                //File creation
+                val fileCreation = System.currentTimeMillis()
+                val imageName = ("$fileCreation${"image.jpg"}")
+
+                //If it does not exist create the temporary
+                val file = File(context?.getExternalFilesDir("PhotoTemp/"), imageName)
+                if (file.exists()) {
+                    file.delete()
+                }
+                //Save the temporary
+                try {
+                    val out = FileOutputStream(file)
+                    bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                    out.flush()
+                    out.close()
+
+                } catch (e: IOException) {
+
+                }
+
+                stringPath = file.toString()
+
+
+            } else {
                 Toast.makeText(context, "You didn't any photo", Toast.LENGTH_SHORT).show()
             }
         }
-
 
         super.onActivityResult(requestCode, resultCode, data)
     }
 
 
     private fun insertDataToDatabase() {
-
         binding = view?.let { FragmentCandidateBinding.bind(it) }!!
         with(binding) {
             val firstName = etAddFirstName.editText?.text.toString()
             val lastName = etAddFirstName.editText?.text.toString()
             val votingCard = etAddNumerCard.editText?.text.toString()
+            // Method to convert the path to a file
+            val myFile = File(stringPath).toString()
 
             if (inputCheck(firstName, lastName, votingCard)) {
                 // Create User Object
@@ -125,7 +168,7 @@ class CandidateFragment : Fragment() {
                     0,
                     firstName,
                     lastName,
-                    votingCard
+                    votingCard,myFile
                 )
                 // Add Data to Database
                 mUserViewModel.addVoters(voters)
@@ -141,7 +184,9 @@ class CandidateFragment : Fragment() {
     }
 
     private fun inputCheck(firstName: String, lastName: String, votingCrad: String): Boolean {
-        return !(TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(votingCrad))
+        return !(TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(
+            votingCrad
+        ))
     }
 
     companion object {

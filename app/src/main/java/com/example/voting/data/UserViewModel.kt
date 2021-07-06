@@ -14,7 +14,6 @@ class UserViewModel(application: Application, savedStateHandle: SavedStateHandle
     val username_: MutableLiveData<String> = savedStateHandle.getLiveData("username", "")
     val passWord_: MutableLiveData<String> = savedStateHandle.getLiveData("password", "")
 
-   // var readAllData: LiveData<User>? = null
     val repository: UserRepository
     var liveDataLogin: LiveData<User>? = null
     val readAllData: LiveData<List<Voters>>
@@ -38,13 +37,7 @@ class UserViewModel(application: Application, savedStateHandle: SavedStateHandle
             repository.addVoter(voters)
         }
     }
-/*
-    fun getLoginDetails(context: Context, username: String, password: String): LiveData<User>? {
-        readAllData = repository.getLoginDetails(context, username, password)
-        return readAllData
-    }
 
- */
 
     fun getLoginDetails(context: Context, username: String, password: String) : LiveData<User>? {
         liveDataLogin = repository.getLoginDetails(context, username,password)
