@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_listFragment_to_candidateFragment"
             app:destination="@id/candidateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_upDateFragment"
+            app:destination="@id/upDateFragment" />
     </fragment>
     <fragment
         android:id="@+id/candidateFragment"
@@ -71,5 +74,14 @@
         <action
             android:id="@+id/action_votersFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upDateFragment"
+        android:name="com.example.voting.UpDateFragment"
+        android:label="fragment_up_date"
+        tools:layout="@layout/fragment_up_date" >
+        <action
+            android:id="@+id/action_upDateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
 </navigation>

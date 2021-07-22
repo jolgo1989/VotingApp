@@ -157,7 +157,7 @@ class CandidateFragment : Fragment() {
         binding = view?.let { FragmentCandidateBinding.bind(it) }!!
         with(binding) {
             val firstName = etAddFirstName.editText?.text.toString()
-            val lastName = etAddFirstName.editText?.text.toString()
+            val lastName = etAddLastName.editText?.text.toString()
             val votingCard = etAddNumerCard.editText?.text.toString()
             // Method to convert the path to a file
             val myFile = File(stringPath).toString()

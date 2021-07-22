@@ -26,4 +26,8 @@
     <string name="textViewlastName">Gao</string>
     <string name="textViewAge">(31)</string>
     <string name="ImageSelect">ImageSelect</string>
+    <string name="Update_first_name">Update first name</string>
+    <string name="Update_last_nme">Update last name</string>
+    <string name="Update_votingCard">Update Voting Card Number</string>
+    <string name="Update">Update</string>
 </resources>
