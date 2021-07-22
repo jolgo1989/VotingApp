@@ -78,10 +78,13 @@
     <fragment
         android:id="@+id/upDateFragment"
         android:name="com.example.voting.UpDateFragment"
-        android:label="fragment_up_date"
-        tools:layout="@layout/fragment_up_date" >
+        android:label="Update User"
+        tools:layout="@layout/fragment_up_date">
         <action
             android:id="@+id/action_upDateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.voting.data.entities.Voters" />
     </fragment>
 </navigation>
