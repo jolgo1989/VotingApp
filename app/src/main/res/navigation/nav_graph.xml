@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/upDateFragment"
-        android:name="com.example.voting.UpDateFragment"
+        android:name="com.example.voting.fragments.UpDateFragment"
         android:label="Update User"
         tools:layout="@layout/fragment_up_date">
         <action

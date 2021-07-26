@@ -23,6 +23,10 @@ class UserRepository(private val userDao: UserDao) {
         return UserDatabase.getDatabase(context)
     }
 
+    suspend fun updateVoter(voters: Voters){
+        userDao.updateVoter(voters)
+    }
+
 
     fun getLoginDetails(context: Context, username: String, password: String): LiveData<User>? {
 

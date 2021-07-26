@@ -1,10 +1,7 @@
 package com.example.voting.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.voting.data.entities.User
 import com.example.voting.data.entities.Voters
 
@@ -16,6 +13,9 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addVoter(voters: Voters)
+
+    @Update
+    suspend fun updateVoter(voters: Voters)
 
     @Query("SELECT * FROM user_table WHERE userName = :username AND password =:password")
     fun getLoginDetails(username: String, password: String): LiveData<User>

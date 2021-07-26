@@ -38,6 +38,12 @@ class UserViewModel(application: Application, savedStateHandle: SavedStateHandle
         }
     }
 
+    fun updateVoter(voters: Voters){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateVoter(voters)
+        }
+    }
+
 
     fun getLoginDetails(context: Context, username: String, password: String) : LiveData<User>? {
         liveDataLogin = repository.getLoginDetails(context, username,password)
