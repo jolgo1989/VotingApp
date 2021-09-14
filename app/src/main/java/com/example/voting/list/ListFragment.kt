@@ -50,13 +50,6 @@ class ListFragment : Fragment() {
             // With blank your fragment BackPressed will be disabled.
         }
 
-
-
-
-
-
-
-
         return view
     }
 

@@ -1,16 +1,15 @@
 package com.example.voting.fragments
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -60,6 +59,10 @@ class UpDateFragment : Fragment() {
         binding.imageViewUpDate.setOnClickListener {
             openGallery()
         }
+
+        //add Menu
+        setHasOptionsMenu(true)
+
     }
 
     //Open gallery
@@ -120,7 +123,7 @@ class UpDateFragment : Fragment() {
     private fun updateItem() {
         val firsName = binding.etUpDateFirstName.editText?.text.toString()
         val lastName = binding.etUpDateLastName.editText?.text.toString()
-        val votingCard  = binding.etUpdateNumerCard.editText?.text.toString()
+        val votingCard = binding.etUpdateNumerCard.editText?.text.toString()
         var myFile = File(stringPath).toString()
         //Validation of the image in case user data is updated and the image is not modified
         if (myFile == "") {
@@ -130,7 +133,8 @@ class UpDateFragment : Fragment() {
         if (inputCheck(firsName, lastName, votingCard)) {
 
             //Create User Object
-            val updateUser = Voters(arg.currentUser.votersId, firsName, lastName,votingCard, myFile )
+            val updateUser =
+                Voters(arg.currentUser.votersId, firsName, lastName, votingCard, myFile)
             // Update Current User
             mUserViewModel.updateVoter(updateUser)
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show()
@@ -146,6 +150,34 @@ class UpDateFragment : Fragment() {
         return !(TextUtils.isEmpty(firsName) && TextUtils.isEmpty(lastName) && TextUtils.isEmpty(
             numberCard
         ))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        if (item.itemId == R.id.delete_menu) {
+            deleteCandidate()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteCandidate() {
+        val builder = AlertDialog.Builder(context)
+        builder.setPositiveButton("Yes") { _, _ ->
+            mUserViewModel.deleteUser(arg.currentUser)
+            Toast.makeText(context, "Successfully removed", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_upDateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete${arg.currentUser.firstName}?")
+        builder.setMessage("Are you sere you want to delete ${arg.currentUser.firstName}")
+        builder.create().show()
+
     }
 
     override fun onDestroy() {

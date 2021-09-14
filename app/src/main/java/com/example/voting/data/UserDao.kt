@@ -17,6 +17,12 @@ interface UserDao {
     @Update
     suspend fun updateVoter(voters: Voters)
 
+    @Delete
+    suspend fun deleteCandidate (voters: Voters)
+
+    @Query ("DELETE FROM  voters_table")
+    suspend fun deleteAllUsers()
+
     @Query("SELECT * FROM user_table WHERE userName = :username AND password =:password")
     fun getLoginDetails(username: String, password: String): LiveData<User>
 

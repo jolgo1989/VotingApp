@@ -30,4 +30,5 @@
     <string name="Update_last_nme">Update last name</string>
     <string name="Update_votingCard">Update Voting Card Number</string>
     <string name="Update">Update</string>
+    <string name="delete">Delete</string>
 </resources>
