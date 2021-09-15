@@ -1,7 +1,9 @@
 package com.example.voting.list
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
@@ -28,7 +30,7 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentListBinding.inflate(inflater , container , false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -53,13 +55,35 @@ class ListFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             // With blank your fragment BackPressed will be disabled.
         }
-        super.onViewCreated(view, savedInstanceState)
+
+        setHasOptionsMenu(true)
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-
         inflater.inflate(R.menu.delete_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //Handle item seletion
+        if (item.itemId == R.id.delete_menu) {
+            deleteAllCandidate()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun deleteAllCandidate() {
+        val builder = AlertDialog.Builder(context)
+        builder.setPositiveButton("Yes") { _, _ ->
+            mUserViewModel.deleteAllUsers()
+            Toast.makeText(context, "Successfully removed everything", Toast.LENGTH_SHORT).show()
+        }
+
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete everything?")
+        builder.setMessage("Are you sure you want to delete everything ")
+        builder.create().show()
+
     }
 
     override fun onDestroy() {
