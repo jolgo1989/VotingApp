@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.voting.R
+import com.example.voting.databinding.FragmentListBinding
 import com.example.voting.databinding.FragmentMainBinding
 
-
+/**
+ * https://developer.android.com/topic/libraries/view-binding
+ * https://developer.android.com/guide/fragments
+ */
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding

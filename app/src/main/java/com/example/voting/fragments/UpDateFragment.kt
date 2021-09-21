@@ -24,7 +24,10 @@ import kotlinx.android.synthetic.main.fragment_up_date.view.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-
+/**
+ * https://developer.android.com/topic/libraries/view-binding
+ * https://developer.android.com/guide/fragments
+ */
 
 class UpDateFragment : Fragment() {
 

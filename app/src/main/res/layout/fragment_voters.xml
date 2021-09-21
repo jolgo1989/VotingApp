@@ -7,12 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".VotersFragment">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="319dp"
-        android:layout_height="305dp"
-        android:layout_marginTop="84dp"
-        android:src="@drawable/ic_launcher_background"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

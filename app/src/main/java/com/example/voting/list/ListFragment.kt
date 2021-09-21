@@ -18,6 +18,10 @@ import com.example.voting.databinding.FragmentListBinding
 import com.example.voting.databinding.FragmentUpDateBinding
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
+/**
+ * https://developer.android.com/topic/libraries/view-binding
+ * https://developer.android.com/guide/fragments
+ */
 
 class ListFragment : Fragment() {
 
@@ -29,7 +33,7 @@ class ListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentListBinding.inflate(inflater, container, false)
 
         return binding.root
